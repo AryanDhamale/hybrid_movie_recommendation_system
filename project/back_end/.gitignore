@@ -1,0 +1,13 @@
+
+
+env/*
+env
+
+__pycache__/
+__pycache__/*
+model/__pycache__/*
+
+model/data/
+model/cosin_sm/
+
+.env
