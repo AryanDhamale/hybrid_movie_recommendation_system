@@ -27,9 +27,9 @@ app.add_middleware(
 )
 
 # load dataframe 
-original=loadFile("original.pkl","data")
-movies=loadFile("movies.pkl","data")
-cosin_sm=loadFile("cosin_sm.pkl","cosin_sm")
+original=loadFile("original.pkl")
+movies=loadFile("movies.pkl")
+cosin_sm=loadFile("cosin_sm.pkl")
 
 
 if original is None or movies is None or cosin_sm is None : 
