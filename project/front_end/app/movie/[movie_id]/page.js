@@ -4,7 +4,7 @@ import MovieMainInfo from "@/components/movie-id/movie-main-info";
 import MovieSubInfo from "@/components/movie-id/movie-sub-info";
 import MoiveRecommnedation from "@/components/movie-id/movie-recommendation";
 import Loading from "@/components/loader/loader";
-import { fetchMovies } from "@/components/utils/fetch-movies";
+import { fetchMovies } from "@/utils/fetch-movies";
 import MoviesLoadError from "@/components/movies-loading-error/movies-load-error";
 import NavBar from "@/components/header-and-footer/nav-bar";
 import Footer from "@/components/header-and-footer/footer";
@@ -13,13 +13,12 @@ function MoviePage({ params }) {
 
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState({ isLoading: true, isErrorAfterLoading: false, errorMessage: "" });
-    const api_endpoint = process.env.NODE_ENV == "development" ? "http://127.0.0.1:8000" : process.env.NEXT_PUBLIC_API_ENDPOINT;
 
     useEffect(() => {
 
         async function getMoive() {
             const { movie_id } = await params;
-            await fetchMovies(setLoading, setMovie, `${api_endpoint}/movies/${movie_id}`);
+            await fetchMovies(setLoading, setMovie, `movies/${movie_id}`);
         }
 
         getMoive();

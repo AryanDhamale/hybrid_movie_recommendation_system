@@ -4,13 +4,11 @@ import Cards from "../movies/cards/cards";
 
 function MoiveRecommnedation({ movie_id, count = 10 }) {
 
-    const api_endpoint = process.env.NODE_ENV == "development" ? "http://127.0.0.1:8000" : process.env.NEXT_PUBLIC_API_ENDPOINT;
-
     return (
         <div className="mt-16 w-full md:w-[95%] mx-auto py-8">
             <Tagline tagline="Recommended Movies" message="You may also like these movies .. " />
             <div className="flex gap-6 pb-8 px-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x">
-                <Cards path={`${api_endpoint}/movies/${movie_id}/recommend?count=${count}`} />
+                <Cards path={`movies/${movie_id}/recommend?count=${count}`} />
             </div>
         </div>
     );

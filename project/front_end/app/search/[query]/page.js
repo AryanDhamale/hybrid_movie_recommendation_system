@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import MovieCard from "@/components/movie-card/movie-card";
+import { SearchMovies } from "@/utils/search-movies";
 
 function Search() {
     const params = useParams();
@@ -12,17 +13,12 @@ function Search() {
     const [query, setQuery] = useState(initialQuery);
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-    const api_endpoint = process.env.NODE_ENV == "development" ? "http://127.0.0.1:8000" : process.env.NEXT_PUBLIC_API_ENDPOINT;
 
     const searchMovies = async (searchQuery) => {
         if (!searchQuery) return;
         setLoading(true);
         try {
-            const res = await fetch(`${api_endpoint}/search?query=${searchQuery}`, { cache: 'force-cache', next: { revalidate: 60 } });
-            const data = await res.json();
-            if (data.movies) {
-                setMovies(data.movies);
-            }
+            await SearchMovies(searchQuery, setMovies);
         } catch (error) {
             console.error("Error searching movies:", error);
         } finally {

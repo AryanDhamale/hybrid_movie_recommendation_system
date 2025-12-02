@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { fetchMovies } from '@/components/utils/fetch-movies';
+import { fetchMovies } from '@/utils/fetch-movies';
 import MovieCard from '@/components/movie-card/movie-card';
 import MovieCardSkeleton from '@/components/movie-card/movie-card-skeleton';
 import MoviesLoadError from '@/components/movies-loading-error/movies-load-error';
