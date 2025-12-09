@@ -4,8 +4,8 @@ import Cards from './cards/cards';
 function Popular() {
 
     return (
-        <div className="w-full py-8">
-            <section>
+        <section id='popular'>
+            <div className="w-full py-8">
 
                 {/* heading section  */}
                 <Tagline tagline="Popular" message="Trending movies everyone is watching" />
@@ -15,8 +15,9 @@ function Popular() {
                     <Cards path={`movies?count=${10}&random=${false}`} />
                 </div>
 
-            </section>
-        </div>
+            </div>
+
+        </section>
     );
 };
 
