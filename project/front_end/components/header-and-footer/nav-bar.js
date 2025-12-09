@@ -1,5 +1,7 @@
+"use client";
 import { Search, Bell, User, Menu } from 'lucide-react';
 import Link from 'next/link';
+import { Link as ScrollLink } from 'react-scroll';
 
 function NavBar() {
     return (
@@ -15,9 +17,9 @@ function NavBar() {
                 <Link href="/">
                     <li className="hover:text-white transition-colors cursor-pointer">Home</li>
                 </Link>
-                <Link href="/">
+                <ScrollLink to="popular" spy={true} smooth={true} offset={-70} duration={500}>
                     <li className="hover:text-white transition-colors cursor-pointer">New & Popular</li>
-                </Link>
+                </ScrollLink>
                 <Link href="/">
                     <li className="hover:text-white transition-colors cursor-pointer">My List</li>
                 </Link>
