@@ -4,8 +4,9 @@ import Cards from './cards/cards';
 function WatchAllComponent() {
 
   return (
-    <div className="w-full py-8">
-      <section>
+    <section id='watch-all'>
+
+      <div className="w-full py-8">
 
         {/* heading section  */}
         <Tagline tagline="Watch All" message="Explore our entire collection of movies" />
@@ -15,8 +16,10 @@ function WatchAllComponent() {
           <Cards path={`movies?count=${10}&random=${true}`} />
         </div>
 
-      </section>
-    </div>
+      </div>
+
+    </section>
+
   );
 };
 
