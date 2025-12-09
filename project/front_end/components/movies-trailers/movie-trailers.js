@@ -2,62 +2,12 @@
 
 import { useState, useRef } from 'react';
 import { Play, ChevronRight, Calendar, Clock } from 'lucide-react';
+import { trailers } from '@/data/trailers-data';
 
 const LatestTrailers = () => {
     const [activeVideo, setActiveVideo] = useState(null);
     const scrollContainerRef = useRef(null);
 
-    // Sample trailer data
-    const trailers = [
-        {
-            id: '1',
-            title: 'Dune: Part Three',
-            youtubeId: 'Way9Dexny3w',
-            releaseDate: 'Coming 2026',
-            duration: '2:45',
-            thumbnail: 'https://img.youtube.com/vi/Way9Dexny3w/maxresdefault.jpg'
-        },
-        {
-            id: '2',
-            title: 'The Batman Part II',
-            youtubeId: 'mqqft2x_Aa4',
-            releaseDate: 'October 2025',
-            duration: '2:30',
-            thumbnail: 'https://img.youtube.com/vi/mqqft2x_Aa4/maxresdefault.jpg'
-        },
-        {
-            id: '3',
-            title: 'Deadpool & Wolverine',
-            youtubeId: '73_1biulkYk',
-            releaseDate: 'In Theaters Now',
-            duration: '2:15',
-            thumbnail: 'https://img.youtube.com/vi/73_1biulkYk/maxresdefault.jpg'
-        },
-        {
-            id: '4',
-            title: 'Stranger Things 5',
-            youtubeId: 'D8Qxxq0Oh9M',
-            releaseDate: 'November 2025',
-            duration: '1:31',
-            thumbnail: 'https://img.youtube.com/vi/D8Qxxq0Oh9M/maxresdefault.jpg'
-        },
-        {
-            id: '5',
-            title: 'Parasite - Official Trailer (2019)',
-            youtubeId: '5xH0HfJHsaY',
-            releaseDate: 'August 2019',
-            duration: '2:16',
-            thumbnail: 'https://img.youtube.com/vi/5xH0HfJHsaY/maxresdefault.jpg'
-        },
-        {
-            id: '6',
-            title: 'The Call ',
-            youtubeId: 'hxkKeniT-0Q',
-            releaseDate: 'October 20',
-            duration: '1:51',
-            thumbnail: 'https://img.youtube.com/vi/hxkKeniT-0Q/maxresdefault.jpg'
-        }
-    ];
 
     const handlePlayClick = (videoId) => {
         setActiveVideo(videoId);
@@ -74,7 +24,7 @@ const LatestTrailers = () => {
     };
 
     return (
-        <section className="w-full py-16 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden">
+        <section id='latest-trailers' className="w-full py-16 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden">
             {/* Background Glow Effect */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-primary/5 blur-[120px] rounded-full" />
@@ -150,7 +100,7 @@ const LatestTrailers = () => {
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-70" />
 
                                         {/* Play Button Overlay */}
-                                        <div className="absolute inset-0 flex items-center justify-center z-10">
+                                        <div className="absolute inset-0 flex items-center justify-center z-50">
                                             <button
                                                 onClick={() => handlePlayClick(trailer.youtubeId)}
                                                 className="group/btn relative flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 transition-all duration-300 hover:scale-110 hover:bg-white/20"
