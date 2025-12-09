@@ -1,6 +1,8 @@
 "use client";
 import { Play, Info, Search } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { Link as ScrollLink } from 'react-scroll';
+import Link from 'next/link';
 
 function HeroSection() {
 
@@ -66,14 +68,20 @@ function HeroSection() {
 
                 {/* CTA Buttons */}
                 <div className="flex items-center gap-4 pt-4">
-                    <button className="flex items-center gap-2 px-8 py-3 bg-white text-black font-bold rounded hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg">
-                        <Play className="w-5 h-5 fill-black" />
-                        Watch Now
-                    </button>
-                    <button className="flex items-center gap-2 px-8 py-3 bg-gray-600/60 text-white font-bold rounded backdrop-blur-md hover:bg-gray-600/80 transition-all transform hover:scale-105 shadow-lg border border-white/20">
-                        <Info className="w-5 h-5" />
-                        More Info
-                    </button>
+
+                    <ScrollLink to="latest-trailers" spy={true} smooth={true} offset={-70} duration={500}>
+                        <button className="flex items-center gap-2 px-8 py-3 bg-white text-black font-bold rounded hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg">
+                            <Play className="w-5 h-5 fill-black" />
+                            Watch Now
+                        </button>
+                    </ScrollLink>
+
+                    <Link href="/more-info">
+                        <button className="flex items-center gap-2 px-8 py-3 bg-gray-600/60 text-white font-bold rounded backdrop-blur-md hover:bg-gray-600/80 transition-all transform hover:scale-105 shadow-lg border border-white/20">
+                            <Info className="w-5 h-5" />
+                            More Info
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
